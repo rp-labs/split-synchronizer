@@ -14,7 +14,7 @@ type SegmentStorageAdapter struct {
 }
 
 // NewSegmentStorageAdapter returns an instance of Redis Segment adapter
-func NewSegmentStorageAdapter(clientInstance *redis.Client, prefix string) *SegmentStorageAdapter {
+func NewSegmentStorageAdapter(clientInstance *redis.ClusterClient, prefix string) *SegmentStorageAdapter {
 	prefixAdapter := &prefixAdapter{prefix: prefix}
 	adapter := &BaseStorageAdapter{prefixAdapter, clientInstance}
 	client := SegmentStorageAdapter{adapter}

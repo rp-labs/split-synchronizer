@@ -17,7 +17,7 @@ type SplitStorageAdapter struct {
 }
 
 // NewSplitStorageAdapter returns an instance of SplitStorageAdapter
-func NewSplitStorageAdapter(clientInstance *redis.Client, prefix string) *SplitStorageAdapter {
+func NewSplitStorageAdapter(clientInstance *redis.ClusterClient, prefix string) *SplitStorageAdapter {
 	prefixAdapter := &prefixAdapter{prefix: prefix}
 	adapter := &BaseStorageAdapter{prefixAdapter, clientInstance}
 	client := SplitStorageAdapter{adapter}

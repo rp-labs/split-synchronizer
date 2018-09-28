@@ -17,7 +17,7 @@ type ImpressionStorageAdapter struct {
 }
 
 // NewImpressionStorageAdapter returns an instance of ImpressionStorageAdapter
-func NewImpressionStorageAdapter(clientInstance *redis.Client, prefix string) *ImpressionStorageAdapter {
+func NewImpressionStorageAdapter(clientInstance *redis.ClusterClient, prefix string) *ImpressionStorageAdapter {
 	prefixAdapter := &prefixAdapter{prefix: prefix}
 	adapter := &BaseStorageAdapter{prefixAdapter, clientInstance}
 	client := ImpressionStorageAdapter{adapter}

@@ -17,7 +17,7 @@ type EventStorageAdapter struct {
 }
 
 // NewEventStorageAdapter returns an instance of EventStorageAdapter
-func NewEventStorageAdapter(clientInstance *redis.Client, prefix string) *EventStorageAdapter {
+func NewEventStorageAdapter(clientInstance *redis.ClusterClient, prefix string) *EventStorageAdapter {
 	prefixAdapter := &prefixAdapter{prefix: prefix}
 	adapter := &BaseStorageAdapter{prefixAdapter, clientInstance}
 	client := EventStorageAdapter{BaseStorageAdapter: adapter}
